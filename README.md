@@ -61,3 +61,14 @@ The sync code is a random 32-character string and is the only "password": anyone
 - `manifest.webmanifest`: name, icons and colours for installing
 - `sw.js`: lets the app run offline
 - `icons/`: app icons
+
+
+## Recovery update (October 2026)
+
+- Kept the existing project as the base, including its task/chapter data keys, custom sync engine, manifest, icons, and offline service worker.
+- Added a responsive guard so the monthly planner's task-panel toggle remains visible and does not shrink away on narrow/portrait layouts.
+- Updated the service-worker shell cache version to `syllabus-v2` so the new `index.html` can replace the prior cached shell.
+- The daily planner already uses a 6:00 AM planning-day boundary in its date/time logic. Event records retain their real date/time; the timeline groups and positions them relative to the 6:00 AM boundary.
+- The task/event editor already stores checkbox visibility separately from completion state; existing `done` values are not repurposed.
+
+Deploy the contents of this folder at the same repository path as your existing `index.html`. Keep the repository's existing GitHub Pages settings. If your existing live site has data, do not clear browser storage; the update preserves the app's existing storage keys.
